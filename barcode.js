@@ -6,7 +6,14 @@ Quagga.init(
       target: document.querySelector("#camera"), // Or '#yourElement' (optional)
     },
     decoder: {
-      readers: ["code_128_reader"],
+        readers: [{
+            format: "ean_reader",
+            config: {
+                supplements: [
+                    'ean_5_reader', 'ean_2_reader'
+                ]
+            }
+        }]
     },
   },
   function (err) {
